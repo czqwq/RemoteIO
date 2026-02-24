@@ -4,7 +4,6 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 
 import cofh.api.energy.IEnergyContainerItem;
-import ic2.api.item.IElectricItem;
 
 /**
  * @author dmillerw
@@ -16,7 +15,7 @@ public class RFTransferHelper {
         for (int i = 0; i < inventory.getSizeInventory(); i++) {
             ItemStack stack = inventory.getStackInSlot(i);
 
-            if (stack != null && stack.getItem() instanceof IElectricItem) {
+            if (stack != null && stack.getItem() instanceof IEnergyContainerItem) {
                 charge += ((IEnergyContainerItem) stack.getItem()).getEnergyStored(stack);
             }
         }
@@ -28,7 +27,7 @@ public class RFTransferHelper {
         for (int i = 0; i < inventory.getSizeInventory(); i++) {
             ItemStack stack = inventory.getStackInSlot(i);
 
-            if (stack != null && stack.getItem() instanceof IElectricItem) {
+            if (stack != null && stack.getItem() instanceof IEnergyContainerItem) {
                 charge += ((IEnergyContainerItem) stack.getItem()).getMaxEnergyStored(stack);
             }
         }
@@ -59,7 +58,7 @@ public class RFTransferHelper {
         for (int i = 0; i < inventory.getSizeInventory(); i++) {
             ItemStack stack = inventory.getStackInSlot(i);
 
-            if (stack != null && stack.getItem() instanceof IElectricItem) {
+            if (stack != null && stack.getItem() instanceof IEnergyContainerItem) {
                 if (extracted < maxAmount) {
                     IEnergyContainerItem energyContainerItem = (IEnergyContainerItem) stack.getItem();
                     extracted += energyContainerItem.extractEnergy(stack, maxAmount, simulate);

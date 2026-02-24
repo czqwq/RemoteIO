@@ -77,7 +77,7 @@ public class DimensionalCoords {
     }
 
     public boolean blockExists(World world) {
-        return getBlock(world) != null && !getBlock().isAir(world, x, y, z);
+        return getBlock(world) != null && !getBlock(world).isAir(world, x, y, z);
     }
 
     public Block getBlock() {
@@ -118,7 +118,7 @@ public class DimensionalCoords {
     }
 
     public int hashCode() {
-        return this.dimensionID & this.x & this.y & this.z;
+        return this.dimensionID ^ this.x ^ this.y ^ this.z;
     }
 
     public DimensionalCoords copy() {

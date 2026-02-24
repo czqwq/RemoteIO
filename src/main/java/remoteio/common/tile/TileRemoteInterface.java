@@ -393,7 +393,7 @@ public class TileRemoteInterface extends TileIOCore
             }
         }
 
-        return cls.cast(remote);
+        return cls.cast(remote != null ? remote : remotePosition.getBlock());
     }
 
     public Object getTransferImplementation(Class<?> cls) {
@@ -431,7 +431,7 @@ public class TileRemoteInterface extends TileIOCore
             }
         }
 
-        return cls.cast(remote);
+        return cls.cast(remote != null ? remote : remotePosition.getBlock());
     }
 
     public ForgeDirection getAdjustedSide(ForgeDirection side) {
