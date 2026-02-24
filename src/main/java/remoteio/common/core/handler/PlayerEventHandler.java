@@ -25,12 +25,11 @@ public class PlayerEventHandler {
                     if (itemStack.getItem() == ModItems.interactionInhibitor) {
                         if (itemStack.getItemDamage() == 1) {
                             preventBlock = true;
-                            break;
                         } else if (itemStack.getItemDamage() == 3) {
                             preventItem = true;
-                            break;
                         }
                     }
+                    if (preventBlock && preventItem) break;
                 }
             }
 

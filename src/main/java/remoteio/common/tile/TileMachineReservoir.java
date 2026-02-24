@@ -68,7 +68,9 @@ public class TileMachineReservoir extends TileCore implements IFluidHandler {
             if (tileEntity instanceof IFluidHandler) found++;
         }
 
-        final int amount = (int) ((float) FluidContainerRegistry.BUCKET_VOLUME / (float) found);
+        if (found == 0) return;
+
+        final int amount = FluidContainerRegistry.BUCKET_VOLUME / found;
 
         for (ForgeDirection forgeDirection : ForgeDirection.VALID_DIRECTIONS) {
             TileEntity tileEntity = worldObj.getTileEntity(

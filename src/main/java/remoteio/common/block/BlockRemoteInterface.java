@@ -48,7 +48,7 @@ public class BlockRemoteInterface extends BlockIOCore {
 
         TileRemoteInterface tile = (TileRemoteInterface) world.getTileEntity(x, y, z);
 
-        if (tile.remotePosition != null && !player.isSneaking() && tile.hasUpgradeChip(UpgradeType.REMOTE_ACCESS)) {
+        if (tile != null && tile.remotePosition != null && !player.isSneaking() && tile.hasUpgradeChip(UpgradeType.REMOTE_ACCESS)) {
             DimensionalCoords there = tile.remotePosition;
             RemoteIO.proxy.activateBlock(
                     world,

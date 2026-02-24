@@ -41,6 +41,10 @@ public class BlockRemoteInventory extends BlockIOCore {
 
         TileRemoteInventory tile = (TileRemoteInventory) world.getTileEntity(x, y, z);
 
+        if (tile == null) {
+            return result;
+        }
+
         if (tile.target == null || tile.target.isEmpty()) {
             if (player.getCurrentEquippedItem() != null
                     && player.getCurrentEquippedItem().getItem() == ModItems.wirelessTransmitter) {
